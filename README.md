@@ -20,3 +20,11 @@ Setup the database and start the server:
 $ node server/create-tables.js
 $ npm run start
 ```
+
+Setup react app
+In new terminal window:
+
+```
+$ cd ../spa
+$ npm install
+```
