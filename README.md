@@ -21,10 +21,18 @@ $ node server/create-tables.js
 $ npm run start
 ```
 
-Setup react app
-In new terminal window:
+Open a new terminal window
+
+Install xcode-clt
+```
+$ xcode-select --install
+```
+Press install, and wait until done.
+
+Once installed setup and start react app:
 
 ```
 $ cd ../spa
 $ npm install
+$ npm run start
 ```
