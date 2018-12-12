@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import logo from './logo.svg'
 import './App.css'
 import axios from 'axios'
+import { Button } from 'semantic-ui-react'
 
 class App extends Component {
   constructor(props) {
@@ -15,35 +16,33 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <section>
-          <form onSubmit={this.loginUser}>
-            <fieldset>
-              <div>
-                <label htmlFor="email">Email:</label>
-                <input
+          <div className="formContainer">
+          <form className="ui form" onSubmit={this.loginUser}>
+              <div className="field">
+                <label>Email</label>
+                <input className="ui left labeled input"
+                  placeholder="Enter your email address"
                   type="text"
                   name="email"
                   value={this.state.email}
                   onChange={e => this.onEmailChange(e.target.value)}
                 />
               </div>
-              <div>
-                <label htmlFor="password">Password:</label>
-                <input
+              <div className="field">
+                <label>Password</label>
+                <input className="ui left labeled input"
+                  placeholder="Enter your password"
                   type="password"
                   name="password"
                   value={this.state.password}
                   onChange={e => this.onPasswordChange(e.target.value)}
                 />
               </div>
-              <div>
-                <button type="submit">Login</button>
-              </div>
-            </fieldset>
+
+                <Button type="submit">Login</Button>
+
           </form>
-        </section>
-      </div>
+          </div>
     )
   }
 
