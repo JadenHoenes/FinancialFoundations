@@ -1,11 +1,11 @@
-
 .nav {
-  padding: 10px;
+  padding: 0px;
 }
 .nav ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
+  float: right;
 }
 .nav ul li {
   display: inline;
@@ -17,9 +17,28 @@
   justify-content: flex-end;
 }
 .mainContainer {
-  margin-top: 10px
+  margin-top: 10px;
 }
 .formContainer {
-  margin: auto;
-  max-width: 700px;
+  position: relative;
+  left: 85%;
+  width: 200px;
+  max-width: 200px;
+}
+
+.navBar {
+  background-color: #f4f5f1;
+  border-bottom: 2px;
+  border-bottom-style: solid;
+  border-bottom-color: black;
+}
+
+.logo {
+  height: 5%;
+  width: 5%;
+  padding-left: 10px;
+}
+
+.lButton {
+  width: 196px;
 }

@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import axios from 'axios'
-import { Button } from 'semantic-ui-react'
+import {Button} from 'semantic-ui-react'
 
 class Signup extends Component {
   constructor(props) {
@@ -14,24 +14,22 @@ class Signup extends Component {
   render() {
     return (
       <div className="formContainer">
-      <form className="ui form" onSubmit={(e) => this.onSubmit}>
-        <div className="field">
-            <label>Email</label>
-            <input type="text" name="email" />
+        <form className="ui form" onSubmit={e => this.onSubmit}>
+          <div className="field">
+            <input type="text" name="email" placeholder="Email" />
           </div>
           <div className="field">
-            <label>Password</label>
-            <input type="password" name="password" />
+            <input type="password" name="password" placeholder="Password" />
           </div>
           <Button type="submit">Sign up</Button>
-      </form>
+        </form>
       </div>
     )
   }
 
   onSubmit(event) {
     event.preventDefault()
-    console.log(event, this.state);
+    console.log(event, this.state)
   }
 }
 

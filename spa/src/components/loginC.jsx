@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import axios from 'axios'
-import { Button } from 'semantic-ui-react'
+import {Button} from 'semantic-ui-react'
 
 class Login extends Component {
   constructor(props) {
@@ -14,33 +14,34 @@ class Login extends Component {
 
   render() {
     return (
-          <div className="formContainer">
-          <form className="ui form" onSubmit={this.loginUser}>
-              <div className="field">
-                <label>Email</label>
-                <input className="ui left labeled input"
-                  placeholder="Enter your email address"
-                  type="text"
-                  name="email"
-                  value={this.state.email}
-                  onChange={e => this.onEmailChange(e.target.value)}
-                />
-              </div>
-              <div className="field">
-                <label>Password</label>
-                <input className="ui left labeled input"
-                  placeholder="Enter your password"
-                  type="password"
-                  name="password"
-                  value={this.state.password}
-                  onChange={e => this.onPasswordChange(e.target.value)}
-                />
-              </div>
-
-                <Button type="submit">Login</Button>
-
-          </form>
+      <div className="formContainer">
+        <form className="ui form" onSubmit={this.loginUser}>
+          <div className="field">
+            <input
+              className="ui left labeled input"
+              placeholder="Email"
+              type="text"
+              name="email"
+              value={this.state.email}
+              onChange={e => this.onEmailChange(e.target.value)}
+            />
           </div>
+          <div className="field">
+            <input
+              className="ui left labeled input"
+              placeholder="Password"
+              type="password"
+              name="password"
+              value={this.state.password}
+              onChange={e => this.onPasswordChange(e.target.value)}
+            />
+          </div>
+
+          <Button type="submit" className="lButton">
+            Login
+          </Button>
+        </form>
+      </div>
     )
   }
 

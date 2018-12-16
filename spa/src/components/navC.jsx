@@ -3,12 +3,15 @@ import {Route, Link} from 'react-router-dom'
 import Login from './loginC'
 import Signup from './signupC'
 import Contact from './contactC'
+import Overview from './overviewC'
+import logo from '../logo.svg'
 
 class Navbar extends Component {
   state = {}
   render() {
     return (
       <div className="nav">
+        <img src={logo} className="logo" alt="img not found" />
         <ul>
           <li>
             <Link to="/">Home</Link>
@@ -22,12 +25,16 @@ class Navbar extends Component {
           <li>
             <Link to="/contact">Contact Us</Link>
           </li>
+          <li>
+            <Link to="/overview">Overview</Link>
+          </li>
         </ul>
 
         <div className="mainContainer">
           <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />
           <Route path="/contact" component={Contact} />
+          <Route path="/overview" component={Overview} />
         </div>
       </div>
     )
