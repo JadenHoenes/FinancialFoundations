@@ -10,6 +10,7 @@ class Navbar extends Component {
   state = {}
   render() {
     return (
+      <div>
       <div className="nav">
         <img src={logo} className="logo" alt="img not found" />
         <ul>
@@ -29,13 +30,13 @@ class Navbar extends Component {
             <Link to="/overview">Overview</Link>
           </li>
         </ul>
-
-        <div className="mainContainer">
-          <Route path="/login" component={Login} />
-          <Route path="/signup" component={Signup} />
-          <Route path="/contact" component={Contact} />
-          <Route path="/overview" component={Overview} />
-        </div>
+      </div>
+      <div className="mainContainer">
+        <Route path="/login" component={Login} />
+        <Route path="/signup" component={Signup} />
+        <Route path="/contact" component={Contact} />
+        <Route path="/overview" component={Overview} />
+      </div>
       </div>
     )
   }
