@@ -16,12 +16,18 @@ class Signup extends Component {
       <div className="formContainer">
         <form className="ui form" onSubmit={e => this.onSubmit}>
           <div className="field">
+            <input type="text" name="firstname" placeholder="First Name" />
+          </div>
+          <div className="field">
+            <input type="text" name="lastname" placeholder="Last Name" />
+          </div>
+          <div className="field">
             <input type="text" name="email" placeholder="Email" />
           </div>
           <div className="field">
             <input type="password" name="password" placeholder="Password" />
           </div>
-          <Button type="submit">Sign up</Button>
+          <Button type="submit">Sign Up</Button>
         </form>
       </div>
     )
