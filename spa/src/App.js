@@ -16,7 +16,7 @@ class App extends Component {
     return (
       <div className="pusher">
         <Navbar />
-        <Route path="/home" component={Home} />
+        <Route exact path="/" component={Home} />
         <div className="mainContainer">
           <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />

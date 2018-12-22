@@ -18,7 +18,7 @@ class Navbar extends Component {
                 <i className="sidebar icon" />
               </a>
 
-              <NavLink className="item" activeClassName="active" to="/home">
+              <NavLink exact className="item" activeClassName="active" to="/">
                 Home
               </NavLink>
               <NavLink className="item" activeClassName="active" to="/contact">
