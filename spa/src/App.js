@@ -15,7 +15,7 @@ class App extends Component {
   render() {
     return (
       <div className="pusher">
-        <Navbar home="active" />
+        <Navbar />
         <Route path="/home" component={Home} />
         <div className="mainContainer">
           <Route path="/login" component={Login} />

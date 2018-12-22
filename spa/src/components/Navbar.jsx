@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Link} from 'react-router-dom'
+import {NavLink, Link} from 'react-router-dom'
 import './Navbar.css'
 
 class Navbar extends Component {
@@ -18,15 +18,15 @@ class Navbar extends Component {
                 <i className="sidebar icon" />
               </a>
 
-              <Link className={this.state.home} to="/home">
+              <NavLink className="item" activeClassName="active" to="/home">
                 Home
-              </Link>
-              <Link className={this.state.contact} to="/contact">
+              </NavLink>
+              <NavLink className="item" activeClassName="active" to="/contact">
                 Contact Us
-              </Link>
-              <Link className={this.state.overview} to="/overview">
+              </NavLink>
+              <NavLink className="item" activeClassName="active" to="/overview">
                 Overview
-              </Link>
+              </NavLink>
 
               <div className="right item">
                 <Link className="ui inverted button" to="/login">
