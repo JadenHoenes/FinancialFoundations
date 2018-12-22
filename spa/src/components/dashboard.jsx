@@ -1,13 +1,13 @@
 import React, {Component} from 'react'
 
-class Contact extends Component {
+class Dashboard extends Component {
   render() {
     return (
       <div className="mainContainer">
-        <p>ToDo contact form</p>
+        <p>ToDo dashboard</p>
       </div>
     )
   }
 }
 
-export default Contact
+export default Dashboard

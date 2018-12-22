@@ -8,8 +8,7 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <Navbar home="active" />
-        <div className="blueback margin50bottom">
+        <div className="blueback margin50bottom h600">
           <div class="ui text container masthead">
             <h1 class="ui inverted header">Imagine-a-Company</h1>
             <h2>Do whatever you want when you want to.</h2>
@@ -94,7 +93,6 @@ class Home extends Component {
             <a class="ui large button">I'm Still Quite Interested</a>
           </div>
         </div>
-        <Footer />
       </div>
     )
   }

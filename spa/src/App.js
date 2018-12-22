@@ -7,19 +7,23 @@ import Overview from './components/overview'
 import Home from './components/home'
 import Footer from './components/footer'
 import Navbar from './components/Navbar'
+import Dashboard from './components/dashboard'
 import './App.css'
 
 class App extends Component {
   render() {
     return (
-      <div class="pusher">
+      <div className="pusher">
+        <Navbar home="active" />
+        <Route path="/home" component={Home} />
         <div className="mainContainer">
-          <Route path="/home" component={Home} />
           <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />
           <Route path="/contact" component={Contact} />
           <Route path="/overview" component={Overview} />
+          <Route path="/dashboard" component={Dashboard} />
         </div>
+        <Footer />
       </div>
     )
   }
