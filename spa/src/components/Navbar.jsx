@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
+import './Navbar.css'
 
 class Navbar extends Component {
   state = {}
@@ -9,8 +10,8 @@ class Navbar extends Component {
   }
   render() {
     return (
-      <div className="">
-        <div className="ui inverted vertical center aligned segment blueback">
+      <div className="nav">
+        <div className="ui inverted vertical center aligned segment">
           <div className="ui container">
             <div className="ui large secondary inverted pointing menu">
               <a className="toc item">

@@ -1,25 +1,13 @@
-.nav {
-  padding: 0px;
-  background-color: #f4f5f1;
-  border-bottom: 2px;
-  border-bottom-style: solid;
-  border-bottom-color: black;
+.nav .inverted.segment {
+  background-color: #0070c0;
 }
-.nav ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  float: right;
+.nav .inverted.pointing.menu {
+  border: none;
 }
-.nav ul li {
-  display: inline;
-  padding-right: 5px;
+.nav .ui.inverted.button {
+  margin-left: 10px;
 }
 
-.container {
-  display: flex;
-  justify-content: flex-end;
-}
 .mainContainer {
   margin: 1em;
 }
@@ -37,17 +25,6 @@
 
 .lButton {
   width: 196px;
-}
-
-.inverted.segment.blueback {
-  background-color: #0070c0;
-}
-.blueback .inverted.pointing.menu {
-  border: none;
-}
-
-.blueback .ui.inverted.button {
-  margin-left: 10px;
 }
 
 .blueback {

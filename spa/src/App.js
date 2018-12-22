@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {Route, Link} from 'react-router-dom'
+import {Redirect} from 'react-router'
 import Login from './components/login'
 import Signup from './components/signup'
 import Contact from './components/contact'
