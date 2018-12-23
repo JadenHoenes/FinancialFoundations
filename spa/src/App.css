@@ -1,4 +1,3 @@
-
 .mainContainer {
   margin: 1em;
 }
@@ -9,9 +8,19 @@
 }
 
 .logo {
-  height: 5%;
-  width: 5%;
+  height: 7.5%;
+  width: 7.5%;
   padding-left: 10px;
+}
+
+.logocontainer h1 {
+  position: relative;
+  bottom: 20px;
+  left: 10px;
+}
+
+.logocontainer img {
+  float: left;
 }
 
 .lButton {

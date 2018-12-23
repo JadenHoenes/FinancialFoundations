@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {  Link} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 class Home extends Component {
   state = {}
@@ -7,14 +7,23 @@ class Home extends Component {
     return (
       <div>
         <div className="masthead">
-        <div className="pitch">
-          <div className="ui text container">
-            <h1 className="ui inverted header">Financial Foundations</h1>
-            <h2>Planning done right.</h2>
-            <Link className="ui huge primary button" to="/signup">
-              Get Started <i className="right arrow icon" />
-            </Link>
-          </div>
+          <div className="pitch">
+            <div className="ui text container">
+              <div className="logocontainer">
+                <img
+                  src="logo.svg"
+                  alt="Financial Foundations Logo"
+                  className="logo"
+                />
+                <h1 className="ui inverted header">Financial Foundations</h1>
+              </div>
+              <div style={{position: 'relative', bottom: 25, left: 10}}>
+                <h2 style={{color: 'white'}}>Planning done right.</h2>
+                <Link className="ui huge primary button" to="/signup">
+                  Get Started <i className="right arrow icon" />
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -38,12 +47,15 @@ class Home extends Component {
                 <img
                   src="assets/images/wireframe/white-image.png"
                   className="ui large bordered rounded image"
+                  alt="Error: not found"
                 />
               </div>
             </div>
             <div className="row">
               <div className="center aligned column">
-                <a className="ui huge button">Check Them Out</a>
+                <a href="/" className="ui huge button">
+                  Check Them Out
+                </a>
               </div>
             </div>
           </div>
@@ -62,6 +74,7 @@ class Home extends Component {
                   <img
                     src="assets/images/avatar/nan.jpg"
                     className="ui avatar image"
+                    alt="Error: not found"
                   />{' '}
                   <b>Nan</b> Chief Fun Officer Acme Toys
                 </p>
@@ -72,16 +85,20 @@ class Home extends Component {
 
         <div className="ui vertical stripe segment">
           <div className="ui text container">
-            <h3 className="ui header">Breaking The Grid, Grabs Your Attention</h3>
+            <h3 className="ui header">
+              Breaking The Grid, Grabs Your Attention
+            </h3>
             <p>
               Instead of focusing on content creation and hard work, we have
               learned how to master the art of doing nothing by providing
               massive amounts of whitespace and generic content that can seem
               massive, monolithic and worth your attention.
             </p>
-            <a className="ui large button">Read More</a>
+            <a href="/" className="ui large button">
+              Read More
+            </a>
             <h4 className="ui horizontal header divider">
-              <a href="#">Case Studies</a>
+              <a href="/">Case Studies</a>
             </h4>
             <h3 className="ui header">Did We Tell You About Our Bananas?</h3>
             <p>
@@ -90,7 +107,9 @@ class Home extends Component {
               gene splicing and combinatory DNA research, but our bananas can
               really dance.
             </p>
-            <a className="ui large button">I'm Still Quite Interested</a>
+            <a href="/" className="ui large button">
+              I'm Still Quite Interested
+            </a>
           </div>
         </div>
       </div>

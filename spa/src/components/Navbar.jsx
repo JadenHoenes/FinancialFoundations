@@ -14,7 +14,7 @@ class Navbar extends Component {
         <div className="ui inverted vertical center aligned segment">
           <div className="ui container">
             <div className="ui large secondary inverted pointing menu">
-              <a className="toc item">
+              <a href="/" className="toc item">
                 <i className="sidebar icon" />
               </a>
 

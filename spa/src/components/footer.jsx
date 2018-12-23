@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-// import {Route, Link} from 'react-router-dom'
+import './footer.css'
 
 class Footer extends Component {
   state = {}
@@ -11,16 +11,16 @@ class Footer extends Component {
             <div className="three wide column">
               <h4 className="ui inverted header">About</h4>
               <div className="ui inverted link list">
-                <a href="#" className="item">
+                <a href="/" className="item">
                   Sitemap
                 </a>
-                <a href="#" className="item">
+                <a href="/" className="item">
                   Contact Us
                 </a>
-                <a href="#" className="item">
+                <a href="/" className="item">
                   Religious Ceremonies
                 </a>
-                <a href="#" className="item">
+                <a href="/" className="item">
                   Gazebo Plans
                 </a>
               </div>
@@ -28,16 +28,16 @@ class Footer extends Component {
             <div className="three wide column">
               <h4 className="ui inverted header">Services</h4>
               <div className="ui inverted link list">
-                <a href="#" className="item">
+                <a href="/" className="item">
                   Banana Pre-Order
                 </a>
-                <a href="#" className="item">
+                <a href="/" className="item">
                   DNA FAQ
                 </a>
-                <a href="#" className="item">
+                <a href="/" className="item">
                   How To Access
                 </a>
-                <a href="#" className="item">
+                <a href="/" className="item">
                   Favorite X-Men
                 </a>
               </div>
