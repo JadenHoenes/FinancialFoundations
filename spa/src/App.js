@@ -8,6 +8,7 @@ import Home from './components/home'
 import Footer from './components/footer'
 import Navbar from './components/Navbar'
 import Dashboard from './components/dashboard'
+import Library from './components/library'
 import './App.css'
 
 class App extends Component {
@@ -22,6 +23,7 @@ class App extends Component {
           <Route path="/contact" component={Contact} />
           <Route path="/overview" component={Overview} />
           <Route path="/dashboard" component={Dashboard} />
+          <Route path="/library" component={Library} />
         </div>
         <Footer />
       </div>

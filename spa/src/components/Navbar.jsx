@@ -27,6 +27,9 @@ class Navbar extends Component {
               <NavLink className="item" activeClassName="active" to="/overview">
                 Overview
               </NavLink>
+              <NavLink className="item" activeClassName="active" to="/library">
+                Library
+              </NavLink>
 
               <div className="right item">
                 <Link className="ui inverted button" to="/login">
