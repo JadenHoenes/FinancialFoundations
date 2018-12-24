@@ -9,6 +9,7 @@ class Navbar extends Component {
     this.state = {contact: 'item', home: 'item', overview: 'item'}
   }
   render() {
+    const name = 'user'
     return (
       <div className="nav">
         <div className="ui inverted vertical center aligned segment">
@@ -21,27 +22,54 @@ class Navbar extends Component {
               <NavLink exact className="item" activeClassName="active" to="/">
                 Home
               </NavLink>
-              <NavLink className="item" activeClassName="active" to="/contact">
-                Contact Us
-              </NavLink>
+              {this.props.loggedin ? (
+                <NavLink
+                  className="item"
+                  activeClassName="active"
+                  to="/dashboard"
+                >
+                  Dashboard
+                </NavLink>
+              ) : (
+                ''
+              )}
               <NavLink className="item" activeClassName="active" to="/overview">
                 Overview
               </NavLink>
               <NavLink className="item" activeClassName="active" to="/library">
                 Library
               </NavLink>
+              <NavLink className="item" activeClassName="active" to="/contact">
+                Contact Us
+              </NavLink>
 
               <div className="right item">
-                <Link className="ui inverted button" to="/login">
-                  Log in
-                </Link>
-                <Link
-                  className="ui inverted button"
-                  style={{marginLeft: '0.5em'}}
-                  to="/signup"
-                >
-                  Sign up
-                </Link>
+                {this.props.loggedin ? (
+                  <h5 style={{position: 'relative', top: 6, right: 5}}>
+                    Welcome, {name}
+                  </h5>
+                ) : (
+                  <Link className="ui inverted button" to="/login">
+                    Log in
+                  </Link>
+                )}
+                {this.props.loggedin ? (
+                  <button
+                    className="ui inverted button"
+                    style={{marginLeft: '0.5em'}}
+                    onClick={this.logOut}
+                  >
+                    Log out
+                  </button>
+                ) : (
+                  <Link
+                    className="ui inverted button"
+                    style={{marginLeft: '0.5em'}}
+                    to="/signup"
+                  >
+                    Sign up
+                  </Link>
+                )}
               </div>
             </div>
           </div>
