@@ -7,6 +7,7 @@ class Login extends Component {
   constructor(props) {
     super(props)
     this.loginUser = this.loginUser.bind(this)
+    this.onAuthenticated = props.onAuthenticated;
     this.state = {
       email: '',
       password: '',
@@ -76,10 +77,15 @@ class Login extends Component {
       })
       .then(
         res => {
+          this.onAuthenticated(true);
           self.setState({success: true})
         },
         function(res) {
-          self.setState({error: res.response.data.error})
+          if(res.response) {
+            self.setState({error: res.response.data.error})
+          } else {
+            self.setState({error: {message:'Unable to log you in.'}});
+          }
         },
       )
   }

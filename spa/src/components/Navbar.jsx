@@ -18,11 +18,7 @@ class Navbar extends Component {
               <a href="/" className="toc item">
                 <i className="sidebar icon" />
               </a>
-
-              <NavLink exact className="item" activeClassName="active" to="/">
-                Home
-              </NavLink>
-              {this.props.loggedin ? (
+              {this.props.isAuthenticated ? (
                 <NavLink
                   className="item"
                   activeClassName="active"
@@ -31,7 +27,9 @@ class Navbar extends Component {
                   Dashboard
                 </NavLink>
               ) : (
-                ''
+                <NavLink exact className="item" activeClassName="active" to="/">
+                  Home
+                </NavLink>
               )}
               <NavLink className="item" activeClassName="active" to="/overview">
                 Overview
@@ -44,7 +42,7 @@ class Navbar extends Component {
               </NavLink>
 
               <div className="right item">
-                {this.props.loggedin ? (
+                {this.props.isAuthenticated ? (
                   <h5 style={{position: 'relative', top: 6, right: 5}}>
                     Welcome, {name}
                   </h5>
@@ -53,7 +51,7 @@ class Navbar extends Component {
                     Log in
                   </Link>
                 )}
-                {this.props.loggedin ? (
+                {this.props.isAuthenticated ? (
                   <button
                     className="ui inverted button"
                     style={{marginLeft: '0.5em'}}

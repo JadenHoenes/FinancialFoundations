@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {Route} from 'react-router-dom'
+import AuthenticatedRoute from './components/AuthenticatedRoute'
 import Login from './components/login'
 import Signup from './components/signup'
 import Contact from './components/contact'
@@ -12,17 +13,23 @@ import Library from './components/library'
 import './App.css'
 
 class App extends Component {
+  isAuthenticated = false;
+
+  onAuthenticated(result) {
+      this.isAuthenticated = result;
+  }
+
   render() {
     return (
       <div className="pusher">
-        <Navbar />
+        <Navbar isAuthenticated={this.isAuthenticated} />
         <Route exact path="/" component={Home} />
         <div className="mainContainer">
-          <Route path="/login" component={Login} />
+          <Route path="/login" render={(props) => <Login {...props} onAuthenticated={result => this.onAuthenticated(result)} />} />
           <Route path="/signup" component={Signup} />
           <Route path="/contact" component={Contact} />
           <Route path="/overview" component={Overview} />
-          <Route path="/dashboard" component={Dashboard} />
+          <AuthenticatedRoute path="/dashboard" isAuthenticated={this.isAuthenticated} component={Dashboard} />
           <Route path="/library" component={Library} />
         </div>
         <Footer />
