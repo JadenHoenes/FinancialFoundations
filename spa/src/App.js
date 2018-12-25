@@ -12,24 +12,32 @@ import Dashboard from './components/dashboard'
 import Library from './components/library'
 import './App.css'
 
-class App extends Component {
+class AuthService {
   isAuthenticated = false;
 
   onAuthenticated(result) {
       this.isAuthenticated = result;
   }
 
+  logout() {
+    this.isAuthenticated = false;
+  }
+}
+
+class App extends Component {
+  auth = new AuthService()
+
   render() {
     return (
       <div className="pusher">
-        <Navbar isAuthenticated={this.isAuthenticated} />
+        <Navbar auth={this.auth} />
         <Route exact path="/" component={Home} />
         <div className="mainContainer">
-          <Route path="/login" render={(props) => <Login {...props} onAuthenticated={result => this.onAuthenticated(result)} />} />
+          <Route path="/login" render={(props) => <Login {...props} onAuthenticated={result => this.auth.onAuthenticated(result)} />} />
           <Route path="/signup" component={Signup} />
           <Route path="/contact" component={Contact} />
           <Route path="/overview" component={Overview} />
-          <AuthenticatedRoute path="/dashboard" isAuthenticated={this.isAuthenticated} component={Dashboard} />
+          <AuthenticatedRoute path="/dashboard" isAuthenticated={this.auth.isAuthenticated} component={Dashboard} />
           <Route path="/library" component={Library} />
         </div>
         <Footer />

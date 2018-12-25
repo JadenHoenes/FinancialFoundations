@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {NavLink, Link} from 'react-router-dom'
 import './Navbar.css'
+import LogoutButton from './LogoutButton';
 
 class Navbar extends Component {
   state = {}
@@ -8,8 +9,10 @@ class Navbar extends Component {
     super(props)
     this.state = {contact: 'item', home: 'item', overview: 'item'}
   }
+
   render() {
-    const name = 'user'
+    const auth = this.props.auth;
+    const name = 'user';
     return (
       <div className="nav">
         <div className="ui inverted vertical center aligned segment">
@@ -18,7 +21,7 @@ class Navbar extends Component {
               <a href="/" className="toc item">
                 <i className="sidebar icon" />
               </a>
-              {this.props.isAuthenticated ? (
+              {auth.isAuthenticated ? (
                 <NavLink
                   className="item"
                   activeClassName="active"
@@ -42,7 +45,7 @@ class Navbar extends Component {
               </NavLink>
 
               <div className="right item">
-                {this.props.isAuthenticated ? (
+                {auth.isAuthenticated ? (
                   <h5 style={{position: 'relative', top: 6, right: 5}}>
                     Welcome, {name}
                   </h5>
@@ -51,14 +54,8 @@ class Navbar extends Component {
                     Log in
                   </Link>
                 )}
-                {this.props.isAuthenticated ? (
-                  <button
-                    className="ui inverted button"
-                    style={{marginLeft: '0.5em'}}
-                    onClick={this.logOut}
-                  >
-                    Log out
-                  </button>
+                {auth.isAuthenticated ? (
+                  <LogoutButton auth={auth}/>
                 ) : (
                   <Link
                     className="ui inverted button"
