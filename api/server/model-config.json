@@ -34,5 +34,13 @@
     "dataSource": "db",
     "public": true,
     "options": {}
+  },
+  "Client": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Person": {
+    "dataSource": "db",
+    "public": true
   }
 }

@@ -1,0 +1,38 @@
+{
+  "name": "Client",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "preparedFor": {
+      "type": "string",
+      "required": true
+    },
+    "primaryGoals": {
+      "type": "string",
+      "required": true
+    },
+    "emergencySavingsAmount": {
+      "type": "number",
+      "required": true,
+      "default": 0
+    },
+    "retireeType": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "wife": {
+      "as": "wife",
+      "type": "hasOne",
+      "model": "Person",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
