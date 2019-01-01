@@ -1,0 +1,24 @@
+.flexbox.col {
+  display: flex;
+  flex-direction: column;
+}
+
+.flexbox.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flexbox.center {
+  justify-content: center;
+}
+
+.flexbox.evenly {
+  justify-content: space-evenly;
+}
+
+.dashboard .welcome {
+  margin-top: 30px;
+}
+.dashboard .button {
+  margin: 100px;
+}

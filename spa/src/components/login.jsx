@@ -7,7 +7,7 @@ class Login extends Component {
   constructor(props) {
     super(props)
     this.loginUser = this.loginUser.bind(this)
-    this.onAuthenticated = props.onAuthenticated;
+    this.onAuthenticated = props.onAuthenticated
     this.state = {
       email: '',
       password: '',
@@ -57,12 +57,10 @@ class Login extends Component {
   }
 
   onEmailChange(email) {
-    //this.state.email = email;
     this.setState({email: email})
   }
 
   onPasswordChange(pass) {
-    //this.state.email = email;
     this.setState({password: pass})
   }
 
@@ -77,14 +75,14 @@ class Login extends Component {
       })
       .then(
         res => {
-          this.onAuthenticated(true);
+          this.onAuthenticated(true)
           self.setState({success: true})
         },
         function(res) {
-          if(res.response) {
+          if (res.response) {
             self.setState({error: res.response.data.error})
           } else {
-            self.setState({error: {message:'Unable to log you in.'}});
+            self.setState({error: {message: 'Unable to log you in.'}})
           }
         },
       )
