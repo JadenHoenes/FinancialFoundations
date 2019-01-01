@@ -1,0 +1,49 @@
+Client
+ preparedFor
+ Husband_id
+ Wife_id
+ PrimaryGoals
+ PlanningPriorities_id
+EmergencySavingsAmnt
+Pre-retiree
+Retiree
+
+
+Priorities
+Life
+Retire
+Estate
+College
+….
+Additional_notes
+
+Income
+Description
+Amount
+
+
+Person
+Birthdate
+Occupation
+Annual Salary
+Monthly Take Home
+
+Assets
+Description
+PresentValue
+EmployerMatch
+Owner of asset
+MonthlyContrib
+PercentNeededMatch
+
+Liabilities
+Description
+PresentValue
+Owner
+
+Insurance
+…
+
+Goals
+
+
