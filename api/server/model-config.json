@@ -39,7 +39,11 @@
     "dataSource": "db",
     "public": true
   },
-  "Person": {
+  "Spouse": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Child": {
     "dataSource": "db",
     "public": true
   }

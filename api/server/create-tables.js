@@ -7,7 +7,8 @@ var lbTables = [
   'RoleMapping',
   'Role',
   'Client',
-  'Person',
+  'Spouse',
+  'Child',
 ]
 ds.automigrate(lbTables, function(er) {
   if (er) throw er

@@ -1,5 +1,5 @@
 {
-  "name": "Person",
+  "name": "Spouse",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
@@ -14,26 +14,22 @@
       "type": "string",
       "required": true
     },
-    "birthdate": {
+    "birthDate": {
       "type": "date",
       "required": true
     },
     "occupation": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "salary": {
       "type": "number",
-      "required": true,
+      "required": false,
       "default": 0
     },
     "takeHome": {
       "type": "number",
       "default": 0
-    },
-    "personType": {
-      "type": "string",
-      "required": true
     }
   },
   "validations": [],

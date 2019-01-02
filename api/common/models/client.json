@@ -6,9 +6,30 @@
     "validateUpsert": true
   },
   "properties": {
-    "preparedFor": {
+    "firstName": {
       "type": "string",
       "required": true
+    },
+    "lastName": {
+      "type": "string",
+      "required": true
+    },
+    "birthDate": {
+      "type": "date",
+      "required": true
+    },
+    "occupation": {
+      "type": "string",
+      "required": false
+    },
+    "salary": {
+      "type": "number",
+      "required": false,
+      "default": 0
+    },
+    "takeHome": {
+      "type": "number",
+      "default": 0
     },
     "primaryGoals": {
       "type": "string",
@@ -26,11 +47,13 @@
   },
   "validations": [],
   "relations": {
-    "wife": {
-      "as": "wife",
+    "spouse": {
       "type": "hasOne",
-      "model": "Person",
-      "foreignKey": ""
+      "model": "Spouse"
+    },
+    "children": {
+      "type": "hasMany",
+      "model": "Child"
     }
   },
   "acls": [],
