@@ -15,10 +15,10 @@ class Dashboard extends Component {
             of the planning process with them. Afterwards, you’ll step through
             each aspect in it’s place and priority.
           </div>
-          <div className="flexbox row center">
+          <div className="flexbox row evenly buttonRow">
             <Button>New Client Profile</Button>
-            <Button className="dashboard">Existing Client Profiles</Button>
-            <Button className="dashboard">Client Presentations</Button>
+            <Button>Existing Client Profiles</Button>
+            <Button>Client Presentations</Button>
           </div>
           <div className="">
             <h3>Planning Tools Quick Links</h3>
