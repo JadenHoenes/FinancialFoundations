@@ -11,10 +11,7 @@ class Footer extends Component {
             <div className="three wide column">
               <h4 className="ui inverted header">About</h4>
               <div className="ui inverted link list">
-                <a href="/" className="item">
-                  Sitemap
-                </a>
-                <a href="/" className="item">
+                <a href="/contact" className="item">
                   Contact Us
                 </a>
                 <a href="/" className="item">
