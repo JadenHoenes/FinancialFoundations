@@ -16,7 +16,7 @@ class Login extends Component {
 
   render() {
     return (
-      <div className="formContainer">
+      <div className="formContainer centered">
         {this.state.error ? (
           <div className="ui message error">{this.state.error.message}</div>
         ) : (

@@ -1,23 +1,21 @@
 .mainContainer {
-  margin: 1em;
+  margin: 2.5em;
 }
 .formContainer {
-  margin: auto;
   max-width: 400px;
-  padding: 50px 0px 50px 0px;
 }
-
+.formContainer.centered {
+  margin: auto;
+}
+.contactInfo {
+  margin-bottom: 25px;
+}
 .textContainer {
   max-width: 50%;
 }
 
 .textStuff {
   font-size: 20px;
-}
-
-.contactContainer {
-  max-width: 400px;
-  padding: 50px 0px 50px 0px;
 }
 
 .logo {

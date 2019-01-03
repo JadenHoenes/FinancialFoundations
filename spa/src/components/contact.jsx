@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {Button} from 'semantic-ui-react'
+import axios from 'axios'
 
 class Contact extends Component {
   constructor(props) {
@@ -19,29 +20,56 @@ class Contact extends Component {
   onEmailChange(email) {
     this.setState({email: email})
   }
-  onSubjectChange(subj) {
-    this.setState({subject: subj})
+  onSubjectChange(subject) {
+    this.setState({subject: subject})
   }
-  onMessageChange(mess) {
-    this.setState({message: mess})
+  onMessageChange(message) {
+    this.setState({message: message})
   }
 
   contactUs(event) {
     event.preventDefault()
     console.log(this.state)
-    const self = this
-    // todo: figure out email model?
+    const self = this;
+    axios
+      .post('http://localhost:3000/contact', {
+        name: this.state.name,
+        email: this.state.email,
+        subject: this.state.subject,
+        message: this.state.message
+      }).then(
+        res => {
+          self.setState({success: true})
+        },
+        function(res) {
+          if (res.response) {
+            self.setState({error: res.response.data.error})
+          } else {
+            self.setState({error: {message: 'Unable to log you in.'}})
+          }
+        },
+      )
   }
 
   render() {
     return (
-      <div className="mainContainer">
+      <div>
         <div className="contactInfo">
           <p>Call us: 1-800-NUMBER</p>
           <p>Email us: service@financialfoudations.com</p>
           <p>Or fill out the form below: </p>
         </div>
-        <div className="contactContainer">
+        {this.state.error ? (
+          <div className="ui message error">{this.state.error.message}</div>
+        ) : (
+          ''
+        )}
+        {this.state.success ? (
+          <div className="ui message success">Your message was sent!</div>
+        ) : (
+          ''
+        )}
+        <div className="formContainer">
           <form className="ui form" onSubmit={this.contactUs}>
             <div className="field">
               <input

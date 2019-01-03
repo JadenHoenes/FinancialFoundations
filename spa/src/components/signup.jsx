@@ -14,7 +14,7 @@ class Signup extends Component {
 
   render() {
     return (
-      <div className="formContainer">
+      <div className="formContainer centered">
         {this.state.error ? (
           <div className="ui message error">{this.state.error.message}</div>
         ) : (
@@ -50,7 +50,7 @@ class Signup extends Component {
                 onChange={e => this.onPasswordChange(e.target.value)}
               />
             </div>
-            <Button type="submit">Sign Up</Button>
+            <Button type="submit" className="lButton">Sign Up</Button>
           </form>
         )}
       </div>
