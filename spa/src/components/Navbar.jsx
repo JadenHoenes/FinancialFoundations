@@ -46,7 +46,7 @@ class Navbar extends Component {
 
               <div className="right item">
                 {auth.isAuthenticated ? (
-                  <h5 style={{position: 'relative', top: 6, right: 5}}>
+                  <h5 style={{margin: 'auto'}}>
                     Welcome, {name}
                   </h5>
                 ) : (
