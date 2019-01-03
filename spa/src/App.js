@@ -11,16 +11,24 @@ import Navbar from './components/Navbar'
 import Dashboard from './components/dashboard'
 import Library from './components/library'
 import './App.css'
+import Cookies from 'universal-cookie';
+
+const cookies = new Cookies();
 
 class AuthService {
   isAuthenticated = false;
+  constructor() {
+    this.isAuthenticated = cookies.get('ffauth');
+  }
 
   onAuthenticated(result) {
-      this.isAuthenticated = result;
+    this.isAuthenticated = result;
+    cookies.set('ffauth', result, { path: '/' });
   }
 
   logout() {
     this.isAuthenticated = false;
+    cookies.set('ffauth', this.isAuthenticated, { path: '/' });
   }
 }
 
