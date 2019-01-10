@@ -1,18 +1,23 @@
 import React, {Component} from 'react'
 import {NavLink, Link} from 'react-router-dom'
 import './Navbar.css'
-import LogoutButton from './LogoutButton';
+import LogoutButton from './LogoutButton'
+import axios from 'axios'
 
 class Navbar extends Component {
   state = {}
   constructor(props) {
     super(props)
-    this.state = {contact: 'item', home: 'item', overview: 'item'}
+    this.state = {
+      contact: 'item',
+      home: 'item',
+      overview: 'item',
+    }
   }
 
   render() {
-    const auth = this.props.auth;
-    const name = 'user';
+    const auth = this.props.auth
+    const name = this.state.username
     return (
       <div className="nav">
         <div className="ui inverted vertical center aligned segment">
@@ -46,16 +51,14 @@ class Navbar extends Component {
 
               <div className="right item">
                 {auth.isAuthenticated ? (
-                  <h5 style={{margin: 'auto'}}>
-                    Welcome, {name}
-                  </h5>
+                  <h5 style={{margin: 'auto'}}>Welcome, {name}</h5>
                 ) : (
                   <Link className="ui inverted button" to="/login">
                     Log in
                   </Link>
                 )}
                 {auth.isAuthenticated ? (
-                  <LogoutButton auth={auth}/>
+                  <LogoutButton auth={auth} />
                 ) : (
                   <Link
                     className="ui inverted button"

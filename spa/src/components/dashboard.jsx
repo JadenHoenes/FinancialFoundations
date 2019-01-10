@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {Button} from 'semantic-ui-react'
+import {Link} from 'react-router-dom'
 import './dashboard.css'
 
 class Dashboard extends Component {
@@ -16,7 +17,9 @@ class Dashboard extends Component {
             each aspect in it’s place and priority.
           </div>
           <div className="flexbox row evenly buttonRow">
-            <Button>New Client Profile</Button>
+            <Link className="ui button" to="/newclient">
+              New Client Profile
+            </Link>
             <Button>Existing Client Profiles</Button>
             <Button>Client Presentations</Button>
           </div>

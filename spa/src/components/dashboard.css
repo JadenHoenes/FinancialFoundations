@@ -15,9 +15,30 @@
 .dashboard .welcome {
   margin-top: 30px;
 }
+
 .dashboard .button {
   white-space: nowrap;
 }
+
 .dashboard .buttonRow {
-  margin: 50px
+  margin: 50px;
+}
+
+.centered.horizontal div {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.centered.vertical {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.centered {
+  margin: auto;
+}
+
+.ui.add.button {
+  margin: 0px 5px 0px 5px;
+  height: 38px;
 }

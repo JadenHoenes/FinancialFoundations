@@ -27,10 +27,22 @@ class Signup extends Component {
         ) : (
           <form className="ui form" onSubmit={this.onSubmit}>
             <div className="field">
-              <input type="text" name="firstname" placeholder="First Name" />
+              <input
+                type="text"
+                name="firstname"
+                placeholder="First Name"
+                value={this.state.firstname}
+                onChange={e => this.onFirstNameChange(e.target.value)}
+              />
             </div>
             <div className="field">
-              <input type="text" name="lastname" placeholder="Last Name" />
+              <input
+                type="text"
+                name="lastname"
+                placeholder="Last Name"
+                value={this.state.lastname}
+                onChange={e => this.onLastNameChange(e.target.value)}
+              />
             </div>
             <div className="field">
               <input
@@ -50,7 +62,9 @@ class Signup extends Component {
                 onChange={e => this.onPasswordChange(e.target.value)}
               />
             </div>
-            <Button type="submit" className="lButton">Sign Up</Button>
+            <Button type="submit" className="lButton">
+              Sign Up
+            </Button>
           </form>
         )}
       </div>
@@ -58,13 +72,19 @@ class Signup extends Component {
   }
 
   onEmailChange(email) {
-    //this.state.email = email;
     this.setState({email: email})
   }
 
   onPasswordChange(pass) {
-    //this.state.email = email;
     this.setState({password: pass})
+  }
+
+  onFirstNameChange(name) {
+    this.setState({firstname: name})
+  }
+
+  onLastNameChange(name) {
+    this.setState({lastname: name})
   }
 
   onSubmit(event) {
@@ -72,8 +92,7 @@ class Signup extends Component {
     const self = this
     axios
       .post('http://localhost:3000/api/users', {
-        // firstname: this.state.firstname,
-        // lastname: this.state.lastname,
+        username: this.state.firstname.concat(' ' + this.state.lastname),
         email: this.state.email,
         password: this.state.password,
       })
