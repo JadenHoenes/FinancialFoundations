@@ -1,52 +1,52 @@
 import React, {Component} from 'react'
+import FormField from './formfield'
 
 class OtherAnnualIncome extends Component {
-  state = {numChildren: 1}
-  id = 1
+  state = {otherIncome: [{name: 'first income', income: 123040}]}
   render() {
-    const children = []
-    for (this.id = 1; this.id < this.state.numChildren; this.id += 1) {
-      children.push(<OtherIncomeFields key={this.id} />)
+    const componentsToRender = []
+    for (var i = 0; i < this.state.otherIncome.length; i += 1) {
+      componentsToRender.push(
+        <OtherIncomeFields
+          key={this.props.owner + i}
+          index={i}
+          owner={this.props.owner}
+          otherIncome={this.state.otherIncome[i]}
+          onIncomeChanged={income => this.onIncomeChanged(income)}
+        />,
+      )
     }
     return (
       <div className="flexbox col">
-        <div className="field">
-          <input
-            className="ui left labeled input"
-            placeholder="Other Income Name"
-            type="text"
-            name="otherincomename"
-            value={this.state.spousemonthlytakehome}
-            onChange={e => this.onSpouseMonthlyTakeHomeChange(e.target.value)}
-          />
-        </div>
-        <div className="flexbox row">
-          <div className="field">
-            <input
-              className="ui left labeled input"
-              placeholder="Income Amount"
-              type="text"
-              key={this.id}
-              name={'otherincomeamount'.concat(this.id)}
-              value={this.state.otherincome}
-              onChange={e => this.onOntherIncomeChange(e.target.value)}
-            />
-          </div>
-          <button
-            type="button"
-            className="ui add button"
-            onClick={this.addChild()}
-          >
-            +
-          </button>
-        </div>
-        <IncomeFieldsContainer />
+        {componentsToRender}
+        <button
+          className="ui button"
+          type="button"
+          onClick={e => this.addChild(e)}
+        >
+          +
+        </button>
       </div>
     )
   }
 
+  onIncomeChanged(income) {
+    // loop through other income,
+    // find the income you are working on (either by index or object reference
+    // update that income object
+    let otherIncome = this.state.otherIncome[income.index]
+    otherIncome.name = income.name
+    otherIncome.income = income.income
+    console.log(otherIncome)
+  }
+
   addChild() {
-    //this.setState({numChildren: this.state.numChildren + 1})
+    console.log('addchild')
+    const otherIncome = this.state.otherIncome
+    otherIncome.push({name: 'thing', income: 0})
+    this.setState({
+      otherIncome: otherIncome,
+    })
   }
 }
 
@@ -54,32 +54,36 @@ const IncomeFieldsContainer = props => (
   <div className="incomeContainer">{props.children}</div>
 )
 
-const OtherIncomeFields = props => (
-  <div className="flexbox col">
-    <div>
-      <div className="field">
-        <input
-          className="ui left labeled input"
-          placeholder="Other Income Name"
-          type="text"
-          name="otherincomename"
-          value={this.state.spousemonthlytakehome}
-          onChange={e => this.onSpouseMonthlyTakeHomeChange(e.target.value)}
+class OtherIncomeFields extends Component {
+  state = {}
+  render() {
+    return (
+      <div>
+        <FormField
+          name="incomename"
+          placeholder="Income Name"
+          onChange={field => this.onFieldChange(field)}
+        />
+        <FormField
+          name="incomevalue"
+          placeholder="Income Value"
+          onChange={field => this.onFieldChange(field)}
         />
       </div>
-      <div className="field">
-        <input
-          className="ui left labeled input"
-          placeholder="Income Amount"
-          type="text"
-          key={this.id}
-          name={'otherincomeamount'.concat(this.id)}
-          value={this.state.otherincome}
-          onChange={e => this.onOntherIncomeChange(e.target.value)}
-        />
-      </div>
-    </div>
-  </div>
-)
+    )
+  }
+  onFieldChange(field) {
+    this.setState(field)
+    console.log(field, this.state)
+    debugger
+    // todo: we need better codes....
+
+    let income = {}
+    income.index = this.props.index
+    income.name = this.state.incomename
+    income.income = this.state.incomevalue
+    this.props.onIncomeChanged(income)
+  }
+}
 
 export default OtherAnnualIncome

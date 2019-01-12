@@ -42,10 +42,12 @@ class NewClient extends Component {
                   <FormField
                     name="clientfirstname"
                     placeholder="Client First Name"
+                    onChange={field => this.onFieldChange(field)}
                   />
                   <FormField
                     name="clientlastname"
                     placeholder="Client Last Name"
+                    onChange={field => this.onFieldChange(field)}
                   />
                   <div className="field shrink">
                     <input
@@ -65,10 +67,12 @@ class NewClient extends Component {
                   <FormField
                     name="spousefirstname"
                     placeholder="Spouse First Name"
+                    onChange={field => this.onFieldChange(field)}
                   />
                   <FormField
                     name="spousefirstname"
                     placeholder="Spouse First Name"
+                    onChange={field => this.onFieldChange(field)}
                   />
                   <div className="field shrink">
                     <input
@@ -102,6 +106,7 @@ class NewClient extends Component {
                   placeholder="Primary Goals"
                   className="centered horizontal"
                   style={{width: '50%'}}
+                  onChange={field => this.onFieldChange(field)}
                 />
                 <div className="flexbox row">
                   <div className="flexbox col">
@@ -120,6 +125,7 @@ class NewClient extends Component {
                     name="primarygoalsnote"
                     placeholder="Notes"
                     style={{width: '50%', marginLeft: 10}}
+                    onChange={field => this.onFieldChange(field)}
                   />
                 </div>
               </div>
@@ -136,26 +142,38 @@ class NewClient extends Component {
               <div className="flexbox row evenly">
                 <div>
                   <FormField
+                    onChange={field => this.onFieldChange(field)}
                     name="clientoccupation"
                     placeholder="Client Occupation"
                   />
                   <FormField
+                    onChange={field => this.onFieldChange(field)}
                     name="clientmonthlytakehome"
                     placeholder="Monthly Take Home"
                   />
-                  <FormField name="clientsalary" placeholder="Annual Salary" />
-                  {<OtherAnnualIncome />}
+                  <FormField
+                    onChange={field => this.onFieldChange(field)}
+                    name="clientsalary"
+                    placeholder="Annual Salary"
+                  />
+                  {<OtherAnnualIncome owner="husband" />}
                 </div>
                 <div>
                   <FormField
+                    onChange={field => this.onFieldChange(field)}
                     name="spouseoccupation"
                     placeholder="Spouse Occupation"
                   />
                   <FormField
+                    onChange={field => this.onFieldChange(field)}
                     name="spousemonthlytakehome"
                     placeholder="Monthly Take Home"
                   />
-                  <FormField name="spousesalary" placeholder="Annual Salary" />
+                  <FormField
+                    onChange={field => this.onFieldChange(field)}
+                    name="spousesalary"
+                    placeholder="Annual Salary"
+                  />
                   {<OtherAnnualIncome />}
                 </div>
               </div>
@@ -222,6 +240,10 @@ class NewClient extends Component {
         </div>
       </div>
     )
+  }
+
+  onFieldChange(field) {
+    this.setState(field)
   }
 
   onClientBirthdateChange(date) {

@@ -13,14 +13,12 @@ class FormField extends Component {
           name={this.name}
           style={this.props.style}
           value={this.state.name}
-          onChange={e => this.onNameChange(e.target.value)}
+          onChange={e =>
+            this.props.onChange({name: this.props.name, value: e.target.value})
+          }
         />
       </div>
     )
-  }
-
-  onNameChange(e) {
-    this.setState({name: e})
   }
 }
 
