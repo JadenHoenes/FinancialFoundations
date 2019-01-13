@@ -1,18 +1,23 @@
 import React, {Component} from 'react'
 
 class FormField extends Component {
-  name = this.props.name
   state = {}
+  className = ''
+  constructor(props) {
+    super(props)
+    this.className = 'field' + this.props.className || '';
+  }
+
   render() {
     return (
-      <div className={'field '.concat(this.props.className)}>
+      <div className={this.className}>
         <input
           className="ui left labeled input"
           placeholder={this.props.placeholder}
           type="text"
-          name={this.name}
+          name={this.props.name}
+          value={this.props.value}
           style={this.props.style}
-          value={this.state.name}
           onChange={e =>
             this.props.onChange({name: this.props.name, value: e.target.value})
           }
