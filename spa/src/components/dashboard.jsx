@@ -29,48 +29,48 @@ class Dashboard extends Component {
               <div>
                 <ul>
                   <li>
-                    <a>Life Insurance Needs Analysis Tool</a>
+                    <a href="/">Life Insurance Needs Analysis Tool</a>
                   </li>
                   <li>
-                    <a>Disability Protection Analysis Tool</a>
+                    <a href="/">Disability Protection Analysis Tool</a>
                   </li>
                   <li>
-                    <a>Property & Casualty Coverage Tool</a>
+                    <a href="/">Property & Casualty Coverage Tool</a>
                   </li>
                   <li>
-                    <a>Health Insurance Coverage</a>
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <ul>
-                  <li>
-                    <a>Retirement Income Plan Optimizer</a>
-                  </li>
-                  <li>
-                    <a>Tax-Free Retirement Calculator</a>
-                  </li>
-                  <li>
-                    <a>Long-Term Care Calculator</a>
-                  </li>
-                  <li>
-                    <a>Investment Tracker</a>
+                    <a href="/">Health Insurance Coverage</a>
                   </li>
                 </ul>
               </div>
               <div>
                 <ul>
                   <li>
-                    <a>Emerg. Fund / Debt Payoff Calculator</a>
+                    <a href="/">Retirement Income Plan Optimizer</a>
                   </li>
                   <li>
-                    <a>Mortgage Payoff Calculator</a>
+                    <a href="/">Tax-Free Retirement Calculator</a>
                   </li>
                   <li>
-                    <a>Social Sec. Optimization Calculator</a>
+                    <a href="/">Long-Term Care Calculator</a>
                   </li>
                   <li>
-                    <a>Medicare Calculator</a>
+                    <a href="/">Investment Tracker</a>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <ul>
+                  <li>
+                    <a href="/">Emerg. Fund / Debt Payoff Calculator</a>
+                  </li>
+                  <li>
+                    <a href="/">Mortgage Payoff Calculator</a>
+                  </li>
+                  <li>
+                    <a href="/">Social Sec. Optimization Calculator</a>
+                  </li>
+                  <li>
+                    <a href="/">Medicare Calculator</a>
                   </li>
                 </ul>
               </div>

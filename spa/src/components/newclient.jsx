@@ -12,7 +12,11 @@ import Insurance from './insurance'
 import Goals from './goals'
 
 class NewClient extends Component {
-  state = {}
+  constructor(props) {
+    super(props)
+    this.createClientUser = this.createClientUser.bind(this)
+    this.state = {}
+  }
   render() {
     return (
       <div className="pageContainer">
@@ -235,6 +239,10 @@ class NewClient extends Component {
                 </div>
               </div>
               <Goals />
+
+              <button className="ui button" type="submit">
+                Submit Client Profile
+              </button>
             </form>
           )}
         </div>
@@ -253,6 +261,11 @@ class NewClient extends Component {
   onSpouseBirthdateChange(date) {
     this.setState({spousebirthdate: date})
     this.setState({spouseage: moment().diff(date, 'years')})
+  }
+
+  createClientUser(e) {
+    e.preventDefault()
+    console.log(this.state)
   }
 }
 
