@@ -2,20 +2,17 @@ import React, {Component} from 'react'
 import FormField from './formfield'
 
 class OtherAnnualIncome extends Component {
-  state = {otherIncome: [{name: 'first income', income: 123040}]}
+  state = {otherIncome: [{id: 0, name: 'first income', income: 123040}]}
   render() {
-    const componentsToRender = []
-    for (var i = 0; i < this.state.otherIncome.length; i += 1) {
-      componentsToRender.push(
-        <OtherIncomeFields
-          key={this.props.owner + i}
-          index={i}
-          owner={this.props.owner}
-          otherIncome={this.state.otherIncome[i]}
-          onIncomeChanged={income => this.onIncomeChanged(income)}
-        />,
-      )
-    }
+    const componentsToRender = this.state.otherIncome.map(otherIncome => {
+      return (<OtherIncomeFields
+        key={otherIncome.id}
+        owner={this.props.owner}
+        otherIncome={otherIncome}
+        onIncomeChanged={income => this.onIncomeChanged(income)}
+      />)
+    })
+
     return (
       <div className="flexbox col">
         {componentsToRender}
@@ -62,11 +59,13 @@ class OtherIncomeFields extends Component {
         <FormField
           name="incomename"
           placeholder="Income Name"
+          value={this.props.otherIncome.name}
           onChange={field => this.onFieldChange(field)}
         />
         <FormField
           name="incomevalue"
           placeholder="Income Value"
+          value={this.props.otherIncome.income}
           onChange={field => this.onFieldChange(field)}
         />
       </div>
