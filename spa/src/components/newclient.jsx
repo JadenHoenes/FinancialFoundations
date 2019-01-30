@@ -10,6 +10,7 @@ import Assets from './assets'
 import Liabilities from './liabilities'
 import Insurance from './insurance'
 import Goals from './goals'
+import ListForms from './listedcomponent'
 
 class NewClient extends Component {
   constructor(props) {

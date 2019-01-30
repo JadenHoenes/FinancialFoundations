@@ -83,7 +83,7 @@ class OtherIncomeFields extends Component {
   onFieldChange(field) {
     this.setState(field)
     console.log(field, this.state)
-    debugger
+    //debugger
     // todo: we need better codes....
 
     let income = {}
