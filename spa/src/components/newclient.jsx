@@ -66,10 +66,18 @@ class NewClient extends Component {
     this.setState({spouseage: moment().diff(date, 'years')})
   }
 
+  // todo: write the back button logic
+
   onSubmit(e) {
     e.preventDefault()
     let nextPage = this.state.currentPage + 1
     this.setState({currentPage: nextPage})
+    // todo: send to server
+    // if client doesn't exist http.post
+    // get client id back, store that in state?
+    // else
+    // http.put( client id )
+
     console.log(this.state)
   }
 }
