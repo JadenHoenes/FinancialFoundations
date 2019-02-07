@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import FormField from './formfield'
-import ListForms from './listedcomponent'
+import ListForms from './listforms'
+import PlanningPriority from './planningpriority'
 import moment from 'moment'
 
 class Insurance extends Component {
@@ -454,6 +455,30 @@ class HomePolicy extends Component {
             style={{margin: 5}}
             className="shrink"
           />
+        </div>
+        <h4 className="welcome">
+          Home Owner/Renter Insurance Do you have any of the following?
+        </h4>
+        <div className="flexbox col">
+          <div className="flexbox row">
+            <PlanningPriority name="Bussiness at Home" />
+            <PlanningPriority name="Swimming Pool" />
+            <PlanningPriority name="Garage" />
+            <PlanningPriority name="Attatched Garage?" />
+          </div>
+          <div className="flexbox row">
+            <PlanningPriority name="Number of Cars" />
+            <PlanningPriority name="Number of Bedrooms" />
+            <PlanningPriority name="Number of Stories" />
+            <PlanningPriority name="Fireplace?" />
+          </div>
+          <div className="flexbox row">
+            <PlanningPriority name="Porch?" />
+            <PlanningPriority name="Burgler Alarm" />
+            <PlanningPriority name="Monitored?" />
+            <PlanningPriority name="Central heating/air?" />
+            <PlanningPriority name="Own a bussiness?" />
+          </div>
         </div>
       </div>
     )

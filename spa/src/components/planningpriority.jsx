@@ -6,14 +6,14 @@ class PlanningPriority extends Component {
   render() {
     return (
       <div className="field flexbox row" style={{margin: 5}}>
-        <div style={{whiteSpace: 'nowrap'}}>{this.props.name}</div>
+        <div style={{whiteSpace: 'nowrap', margin: 5}}>{this.props.name}</div>
         <input
           className="ui left labeled input"
           type="checkbox"
           name={this.props.name}
           value={this.state.field}
           onChange={e => this.onFieldChange(e.target.value)}
-          style={{position: 'relative', top: 5, left: 3}}
+          style={{position: 'relative', top: 5, left: 3, marginTop: 5}}
         />
       </div>
     )

@@ -5,8 +5,8 @@ class ListForms extends Component {
   state = {list: []}
   iterator = {}
   render() {
-    const componentsToRender = this.state.list.map(list => {
-      return <div key={list.toString()}>{this.props.addedComponent}</div>
+    const componentsToRender = this.state.list.map((list, index) => {
+      return <div key={index}>{this.props.addedComponent}</div>
     })
     return (
       <div className={this.props.className}>

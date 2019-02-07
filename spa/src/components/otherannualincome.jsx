@@ -36,6 +36,7 @@ class OtherAnnualIncome extends Component {
   }
 
   onIncomeChanged(income) {
+    debugger
     // loop through other income,
     // find the income you are working on (either by index or object reference
     // update that income object

@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import FormField from './formfield'
-import ListForms from './listedcomponent'
+import ListForms from './listforms'
 import moment from 'moment'
 
 class Asstes extends Component {
