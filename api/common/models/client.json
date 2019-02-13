@@ -14,13 +14,29 @@
       "type": "string",
       "required": true
     },
-    "birthDate": {
+    "birthdate": {
       "type": "date",
       "required": true
     },
+    "spouseFirstName": {
+      "type": "string",
+      "required": false,
+      "default": ""
+    },
+    "spouseLastName": {
+      "type": "string",
+      "required": false,
+      "default": ""
+    },
+    "spouseBirthdate": {
+      "type": "date",
+      "required": false,
+      "defaultFn": "now"
+    },
     "occupation": {
       "type": "string",
-      "required": false
+      "required": false,
+      "default": ""
     },
     "salary": {
       "type": "number",
@@ -33,16 +49,18 @@
     },
     "primaryGoals": {
       "type": "string",
-      "required": true
+      "required": false,
+      "default": ""
     },
     "emergencySavingsAmount": {
       "type": "number",
-      "required": true,
+      "required": false,
       "default": 0
     },
     "retireeType": {
       "type": "string",
-      "required": true
+      "required": false,
+      "default": ""
     }
   },
   "validations": [],

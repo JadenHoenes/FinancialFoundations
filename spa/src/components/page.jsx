@@ -9,19 +9,25 @@ class Page extends Component {
 
   onSubmit(e) {
     e.preventDefault()
-    console.log(this.state)
+    //console.log(this.state)
   }
 
   render() {
-    const {onSubmit} = this.props
+    const {onSubmit, onBack, currentPage, model} = this.props
 
     return (
       <div>
         <form className="ui form" onSubmit={onSubmit}>
           {this.props.children}
           <div>
-            <button>Back</button>
-            <button className="ui buton" type="submit">
+            {currentPage > 0 ? (
+              <button className="ui button" type="button" onClick={onBack}>
+                Back
+              </button>
+            ) : (
+              ''
+            )}
+            <button className="ui button" type="submit">
               Next
             </button>
           </div>

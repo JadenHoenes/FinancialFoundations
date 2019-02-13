@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 
 class FormField extends Component {
-  state = {}
+  state = {value: this.props.value}
   render() {
     return (
       <div className={'field '.concat(this.props.className)}>

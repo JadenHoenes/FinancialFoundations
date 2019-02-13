@@ -2,16 +2,7 @@ import React, {Component} from 'react'
 import {Redirect} from 'react-router'
 import moment from 'moment'
 import './dashboard.css'
-import PlanningPriority from './planningpriority.jsx'
-import OtherAnnualIncome from './otherannualincome'
-import FormField from './formfield'
-import FormArea from './formarea'
-import Birthdays from './birthdays'
-import Assets from './assets'
-import Liabilities from './liabilities'
-import Insurance from './insurance'
-import Goals from './goals'
-import ListForms from './listforms'
+import axios from 'axios'
 import Page from './page'
 import Page1 from './page1'
 import Page2 from './page2'
@@ -21,14 +12,14 @@ class NewClient extends Component {
     super(props)
     this.onSubmit = this.onSubmit.bind(this)
     this.onFieldChange = this.onFieldChange.bind(this)
+    this.nextPage = this.nextPage.bind(this)
+    this.previousPage = this.previousPage.bind(this)
     this.state = {currentPage: 0}
-    this.pages = [
-      <Page1 onFieldChange={this.onFieldChange} />,
-      <Page2 onFieldChange={this.onFieldChange} />,
-    ]
+    this.pages = [Page1, Page2]
   }
-  getPage(index) {
-    return this.pages[index]
+  getPage(index, model) {
+    let MyPage = this.pages[index]
+    return <MyPage onFieldChange={this.onFieldChange} model={model} />
   }
   render() {
     return (
@@ -42,8 +33,12 @@ class NewClient extends Component {
           {this.state.success ? (
             <Redirect to="/dashboard" />
           ) : (
-            <Page onSubmit={this.onSubmit}>
-              {this.getPage(this.state.currentPage)}
+            <Page
+              onSubmit={this.onSubmit}
+              onBack={this.previousPage}
+              currentPage={this.state.currentPage}
+            >
+              {this.getPage(this.state.currentPage, this.state.sendToServer)}
             </Page>
           )}
         </div>
@@ -70,15 +65,62 @@ class NewClient extends Component {
 
   onSubmit(e) {
     e.preventDefault()
-    let nextPage = this.state.currentPage + 1
-    this.setState({currentPage: nextPage})
-    // todo: send to server
+    console.log(this.state)
+    /* todo: send to server
     // if client doesn't exist http.post
     // get client id back, store that in state?
     // else
-    // http.put( client id )
+    // http.put( client id )*/
+    if (this.state.sendToServer.id) {
+      const self = this
+      axios
+        .put('http://localhost:3000/api/Clients', self.state.sendToServer)
+        .then(
+          res => {
+            self.nextPage(res)
+          },
+          function(res) {
+            if (res.response) {
+              self.setState({error: res.response.data.error})
+            } else {
+              self.setState({error: {message: 'Unable to update client'}})
+            }
+          },
+        )
+    } else {
+      const self = this
+      axios
+        .post('http://localhost:3000/api/Clients', self.state.sendToServer)
+        .then(
+          res => {
+            self.nextPage(res)
+          },
+          function(res) {
+            if (res.response) {
+              self.setState({error: res.response.data.error})
+            } else {
+              self.setState({error: {message: 'Unable to create client'}})
+            }
+          },
+        )
+    }
+  }
 
-    console.log(this.state)
+  nextPage(res) {
+    let nextPage = this.state.currentPage + 1
+    let success = nextPage >= this.pages.length
+    this.setState({
+      sendToServer: res.data,
+      currentPage: nextPage,
+      success: success,
+    })
+  }
+
+  previousPage() {
+    let nextPage = this.state.currentPage - 1
+    this.setState({
+      currentPage: nextPage,
+    })
   }
 }
 

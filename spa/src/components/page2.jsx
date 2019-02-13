@@ -8,12 +8,12 @@ class Page2 extends Component {
     return (
       <div>
         <FormField
-          name="spousefirstname"
+          name="spouseFirstName"
           placeholder="Spouse First Name"
           onChange={field => this.props.onFieldChange(field)}
         />
         <FormField
-          name="spouselastname"
+          name="spouseLastName"
           placeholder="Spouse Last Name"
           onChange={field => this.props.onFieldChange(field)}
         />
@@ -22,11 +22,11 @@ class Page2 extends Component {
             className="ui left labeled input"
             placeholder="Spouse Birthdate"
             type="date"
-            name="spousebirthdate"
-            value={this.state.spousebirthdate}
+            name="spouseBirthdate"
+            value={this.state.spouseBirthdate}
             onChange={e => {
               var date = e.target.value
-              this.props.onFieldChange({spousebirthdate: date})
+              this.props.onFieldChange({spouseBirthdate: date})
               this.setState({
                 spouseage: moment().diff(date, 'years'),
               })

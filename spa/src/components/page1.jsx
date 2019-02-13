@@ -5,6 +5,8 @@ import FormField from './formfield'
 class Page1 extends Component {
   state = {}
   render() {
+    const model = this.props.model || {}
+    console.log(model)
     return (
       <div>
         <h2 className="welcome">Client Profile</h2>
@@ -19,13 +21,15 @@ class Page1 extends Component {
         <div className="flexbox row evenly">
           <div>
             <FormField
-              name="clientfirstname"
+              name="firstName"
               placeholder="Client First Name"
+              value={model.firstName}
               onChange={field => this.props.onFieldChange(field)}
             />
             <FormField
-              name="clientlastname"
+              name="lastName"
               placeholder="Client Last Name"
+              value={model.lastName}
               onChange={field => this.props.onFieldChange(field)}
             />
             <div className="field shrink">
@@ -33,11 +37,11 @@ class Page1 extends Component {
                 className="ui left labeled input"
                 placeholder="Client Birthdate"
                 type="date"
-                name="clientbirthdate"
-                value={this.state.clientbirthdate}
+                name="birthdate"
+                value={model.birthdate}
                 onChange={e => {
                   var date = e.target.value
-                  this.props.onFieldChange({clientbirthdate: date})
+                  this.props.onFieldChange({birthdate: date})
                   this.setState({
                     clientage: moment().diff(date, 'years'),
                   })
