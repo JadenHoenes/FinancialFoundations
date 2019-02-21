@@ -6,6 +6,7 @@ import axios from 'axios'
 import Page from './page'
 import Page1 from './page1'
 import Page2 from './page2'
+import Page3 from './page3'
 
 class NewClient extends Component {
   constructor(props) {
@@ -15,7 +16,7 @@ class NewClient extends Component {
     this.nextPage = this.nextPage.bind(this)
     this.previousPage = this.previousPage.bind(this)
     this.state = {currentPage: 0}
-    this.pages = [Page1, Page2]
+    this.pages = [Page1, Page2, Page3]
   }
   getPage(index, model) {
     let MyPage = this.pages[index]
@@ -61,16 +62,9 @@ class NewClient extends Component {
     this.setState({spouseage: moment().diff(date, 'years')})
   }
 
-  // todo: write the back button logic
-
   onSubmit(e) {
     e.preventDefault()
     console.log(this.state)
-    /* todo: send to server
-    // if client doesn't exist http.post
-    // get client id back, store that in state?
-    // else
-    // http.put( client id )*/
     if (this.state.sendToServer.id) {
       const self = this
       axios

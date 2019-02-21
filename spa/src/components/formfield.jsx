@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 
 class FormField extends Component {
-  state = {value: this.props.value}
   render() {
     return (
       <div className={'field '.concat(this.props.className)}>
@@ -11,7 +10,7 @@ class FormField extends Component {
           type="text"
           name={this.props.name}
           style={this.props.style}
-          value={this.state.value}
+          value={this.props.value}
           type={this.props.type}
           onChange={e => {
             let field = {}

@@ -1,0 +1,87 @@
+<form className="ui form" onSubmit={this.createClientUser}>
+              <div>
+                <h2 className="welcome">Client Profile</h2>
+                <div className="infoText margin50bottom">
+                  We can’t do anything for our clients until we have some basic
+                  facts. Fill out the client profile as completely as possible
+                  to start the Financial Foundations&trade; process with your
+                  client(s). You can also email a link for your clients to fill
+                  out the client profile ahead of time. Or at least to show them
+                  ahead of time what information you’ll be gathering.
+                </div>
+              </div>
+              <div className="flexbox row evenly">
+                <div>
+                  <FormField
+                    name="clientfirstname"
+                    placeholder="Client First Name"
+                    onChange={field => this.onFieldChange(field)}
+                  />
+                  <FormField
+                    name="clientlastname"
+                    placeholder="Client Last Name"
+                    onChange={field => this.onFieldChange(field)}
+                  />
+                  <div className="field shrink">
+                    <input
+                      className="ui left labeled input"
+                      placeholder="Client Birthdate"
+                      type="date"
+                      name="clientbirthdate"
+                      value={this.state.clientbirthdate}
+                      onChange={e =>
+                        this.onClientBirthdateChange(e.target.value)
+                      }
+                    />
+                    <p style={{marginTop: 10}}>Age: {this.state.clientage}</p>
+                  </div>
+                </div>
+                <div>
+                  <FormField
+                    name="spousefirstname"
+                    placeholder="Spouse First Name"
+                    onChange={field => this.onFieldChange(field)}
+                  />
+                  <FormField
+                    name="spousefirstname"
+                    placeholder="Spouse First Name"
+                    onChange={field => this.onFieldChange(field)}
+                  />
+                  <div className="field shrink">
+                    <input
+                      className="ui left labeled input"
+                      placeholder="Spouse Birthdate"
+                      type="date"
+                      name="spousebirthdate"
+                      value={this.state.spousebirthdate}
+                      onChange={e =>
+                        this.onSpouseBirthdateChange(e.target.value)
+                      }
+                    />
+                    <p style={{marginTop: 10, marginBottom: 10}}>
+                      Age: {this.state.spouseage}
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <h3 className="welcome">Primary Financial Goals</h3>
+                <div className="infoText margin20bottom">
+                  Foremost among all the information gathered from your clients
+                  are their top financial priorities. List here the goals,
+                  concerns, and topics that are most important to your clients,
+                  the matters that first come to mind.
+                </div>
+                <FormArea
+                  name="primarygoals"
+                  placeholder="Primary Goals"
+                  className="centered horizontal"
+                  style={{width: '50%'}}
+                  onChange={field => this.onFieldChange(field)}
+                />
+              </div>
+
+              <button className="ui button" type="submit">
+                Submit Client Profile
+              </button>
+            </form>

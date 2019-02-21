@@ -3,10 +3,20 @@ import moment from 'moment'
 import FormField from './formfield'
 
 class Page1 extends Component {
-  state = {}
+  constructor(props) {
+    super(props)
+    if (this.props.model) {
+      this.state = {
+        ...this.props.model,
+        clientage: moment().diff(this.props.model.birthdate, 'years'),
+      }
+    } else {
+      this.state = {firstName: '', lastName: '', birthdate: ''}
+    }
+    this.onChange = this.onChange.bind(this)
+  }
   render() {
-    const model = this.props.model || {}
-    console.log(model)
+    console.log(this.state)
     return (
       <div>
         <h2 className="welcome">Client Profile</h2>
@@ -23,27 +33,27 @@ class Page1 extends Component {
             <FormField
               name="firstName"
               placeholder="Client First Name"
-              value={model.firstName}
-              onChange={field => this.props.onFieldChange(field)}
+              value={this.state.firstName}
+              onChange={field => this.onChange(field)}
             />
             <FormField
               name="lastName"
               placeholder="Client Last Name"
-              value={model.lastName}
-              onChange={field => this.props.onFieldChange(field)}
+              value={this.state.lastName}
+              onChange={field => this.onChange(field)}
             />
             <div className="field shrink">
-              <input
+              <FormField
                 className="ui left labeled input"
                 placeholder="Client Birthdate"
-                type="date"
                 name="birthdate"
-                value={model.birthdate}
-                onChange={e => {
-                  var date = e.target.value
-                  this.props.onFieldChange({birthdate: date})
+                type="date"
+                value={moment(this.state.birthdate).format('YYYY-MM-DD')}
+                onChange={field => {
+                  this.onChange(field)
                   this.setState({
-                    clientage: moment().diff(date, 'years'),
+                    clientage: moment().diff(field.birthdate, 'years'),
+                    birthdate: field.birthdate,
                   })
                 }}
               />
@@ -53,6 +63,10 @@ class Page1 extends Component {
         </div>
       </div>
     )
+  }
+  onChange(field) {
+    this.setState(field)
+    this.props.onFieldChange(field)
   }
 }
 
